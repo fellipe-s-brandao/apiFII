@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+    app:
+        build: .
+        container_name: api-fi
+        ports:
+          - 3334:3334
+        volumes:
+            - .:/usr/app
