@@ -1,4 +1,5 @@
 import { CronJob } from 'cron';
+import { GetFiis } from '../modules/fundos_imobiliarios/useCases/getFiis/GetFiis';
 
 class Jobs {
 
@@ -7,9 +8,9 @@ class Jobs {
   constructor() {
     console.log("Jobs is running");
 
-    this.cronJob = new CronJob('1 * * * * *', async () => {
+    this.cronJob = new CronJob('* 30 * * * *', async () => {
       try {
-        this.getInfoFundos();
+        await this.getInfoFundos();
       } catch (e) {
         console.error(e);
       }
@@ -20,7 +21,10 @@ class Jobs {
       this.cronJob.start();
     }
   }
-    getInfoFundos() {
+   async getInfoFundos() {
+      let getFiis = new GetFiis;
+      let fundos = await getFiis.execute();
+      
     }
 
 }
