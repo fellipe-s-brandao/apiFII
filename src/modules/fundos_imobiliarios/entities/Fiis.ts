@@ -1,9 +1,10 @@
 import { Column, CreateDateColumn, Entity, PrimaryColumn } from 'typeorm';
+import { v4 as uuidV4 } from "uuid";
 
-@Entity('Fiis')
+@Entity('fiis')
 class Fiis {
     @PrimaryColumn()
-    id: number;
+    id?: string;
 
     @Column()
     codigo_fundo: string;
@@ -77,11 +78,20 @@ class Fiis {
     @Column({type: "decimal", precision: 12, scale: 2})
     vacancia_fisica: number;
 
+    @Column({type: "decimal", precision: 12, scale: 2})
+    vacancia_financeira: number;
+
     @Column()
     quantidade_ativos: number;
 
     @CreateDateColumn()
     data_atualizacao: Date;
+
+    constructor(){
+        if(! this.id){
+            this.id = uuidV4();
+        }
+    }
 }
 
 export { Fiis };

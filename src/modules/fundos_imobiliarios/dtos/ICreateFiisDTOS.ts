@@ -1,5 +1,4 @@
 interface ICreateFiisDTOS {
-    id: number,
     codigo_fundo: string,
     setor: string,
     preco_atual: number,
@@ -24,6 +23,7 @@ interface ICreateFiisDTOS {
     rentabilidade_patrimonial_periodo: number,
     rentabilidade_patrimonial_acumulada: number,
     vacancia_fisica: number,
+    vacancia_financeira: number,
     quantidade_ativos: number,
     data_atualizacao: Date,
 }

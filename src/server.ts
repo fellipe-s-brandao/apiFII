@@ -1,9 +1,13 @@
 import "reflect-metadata"
-import express, { Router, Request, Response } from 'express';
+import express, { Router } from 'express';
+import "./shared/container"
 
 import { Jobs } from "./job/CronJob";
 
+import { connectDb } from "./database";
 new Jobs;
+
+connectDb();
 
 const app = express();
 const route = Router();
