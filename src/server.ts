@@ -1,13 +1,13 @@
+process.env.TZ = "America/Sao_Paulo"
 import "reflect-metadata"
 import express, { Router } from 'express';
 import "./shared/container"
 
+import "./database";
 import { Jobs } from "./job/CronJob";
 
-import { connectDb } from "./database";
 new Jobs;
 
-connectDb();
 
 const app = express();
 const route = Router();

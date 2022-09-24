@@ -1,16 +1,13 @@
-import { createConnection } from "typeorm";
+import { createConnection, getConnectionOptions } from 'typeorm';
 
-export const connectDb = async (retries = 5) => {
-    while (retries) {
-      try {
-        await createConnection();
-        break;
-      } catch (err) {
-        console.log(err);
-        retries -= 1;
-        console.log(`retries left: ${retries}`);
-        // wait 5 seconds
-        await new Promise(res => setTimeout(res, 5000));
-      }
-    }
-  };
+interface IOptions {
+  host: string;
+}
+
+getConnectionOptions().then(options => {
+  const newOptions = options as IOptions;
+  newOptions.host = 'database_fiis'; //Essa opção deverá ser EXATAMENTE o nome dado ao service do banco de dados
+  createConnection({
+    ...options,
+  });
+});

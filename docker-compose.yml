@@ -1,10 +1,29 @@
 version: '3.7'
 
 services:
+    database_fiis:
+      image: postgres
+      container_name: database_fiis
+      restart: always
+      ports:
+        - 5431:5432
+      environment:
+        - POSTGRES_USER=docker_postgres_fiis
+        - POSTGRES_PASSWORD=Docker_postgres_fiis
+        - POSTGRES_DB=database_fiis
+      volumes:
+          - pgdata:/data/postgres
     app:
         build: .
-        container_name: api-fi
+        container_name: api-fii
         ports:
           - 3334:3334
         volumes:
             - .:/usr/app
+        links:
+            - database_fiis
+        depends_on: 
+            - database_fiis
+volumes:
+    pgdata:
+        driver: local

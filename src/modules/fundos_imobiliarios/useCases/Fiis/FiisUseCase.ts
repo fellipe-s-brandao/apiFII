@@ -19,6 +19,8 @@ class FiisUseCase {
             if(fundoCriado === undefined) {
                 await this.fiisRepository.create(fundo);
             } else {
+                fundo.data_atualizacao_api = new Date();
+
                 await this.fiisRepository.updateFundoById(fundo, fundoCriado.id);
             }
         })
