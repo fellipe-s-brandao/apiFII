@@ -1,10 +1,10 @@
 
+import { Fiis } from "@modules/fundos_imobiliarios/infra/typeorm/entities/Fiis";
 import axios from "axios";
-import { Fiis } from "../../entities/Fiis";
 
 class GetFiis {
 
-    constructor(){}
+    constructor() { }
 
     async execute(): Promise<Fiis[]> {
         try {

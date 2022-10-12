@@ -1,7 +1,8 @@
+import { ICreateFiisDTOS } from "@modules/fundos_imobiliarios/dtos/ICreateFiisDTOS";
+import { IFiisRepository } from "@modules/fundos_imobiliarios/repositories/IFiisRepository";
 import { getRepository, Repository } from "typeorm";
-import { ICreateFiisDTOS } from "../../dtos/ICreateFiisDTOS";
-import { Fiis } from "../../entities/Fiis";
-import { IFiisRepository } from "../IFiisRepository";
+import { Fiis } from "../entities/Fiis";
+
 
 class FiisRepository implements IFiisRepository {
     private repository: Repository<Fiis>
@@ -12,7 +13,7 @@ class FiisRepository implements IFiisRepository {
 
     async create(data: ICreateFiisDTOS): Promise<void> {
         const fundo = this.repository.create(data);
-        
+
         await this.repository.save(fundo);
     }
 

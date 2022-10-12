@@ -9,7 +9,7 @@ class Jobs {
     constructor() {
         console.log("Jobs is running");
 
-        this.cronJob = new CronJob('30 * * * * *', async () => {
+        this.cronJob = new CronJob('* 30 * * * *', async () => {
             try {
                 await this.getInfoFundos();
                 await this.processaDados();
