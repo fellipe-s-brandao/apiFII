@@ -8,7 +8,7 @@ class GetFiis {
 
     async execute(): Promise<Fiis[]> {
         try {
-            const response = await axios.get<Fiis[]>("https://fii.samuelterra.dev/");
+            const response = await axios.get<Fiis[]>(process.env.APIFUNDO);
 
             return response.data;
         } catch (error) {

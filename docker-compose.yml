@@ -7,10 +7,11 @@ services:
       restart: always
       ports:
         - 5431:5432
+      env_file: .env
       environment:
-        - POSTGRES_USER=docker_postgres_fiis
-        - POSTGRES_PASSWORD=Docker_postgres_fiis
-        - POSTGRES_DB=database_fiis
+        - POSTGRES_USER=$POSTGRES_USER
+        - POSTGRES_PASSWORD=$POSTGRES_PASSWORD
+        - POSTGRES_DB=$POSTGRES_DB
       volumes:
           - pgdata:/data/postgres
     app:
