@@ -3,7 +3,7 @@ import "reflect-metadata"
 import express, { Router } from 'express';
 import "@shared/container"
 
-import "./database";
+import "../typeorm/database";
 import { Jobs } from "job/CronJob";
 
 new Jobs;

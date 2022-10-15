@@ -5,9 +5,9 @@
     "username": "docker_postgres_fiis",
     "password": "Docker_postgres_fiis",
     "database": "database_fiis",
+    "migrations": ["./src/shared/infra/typeorm/migrations/*.ts"],
     "entities": ["./src/modules/**/entities/*.ts"],
-    "migrations": ["./src/database/migrations/*.ts"],
     "cli": {
-      "migrationsDir": "./src/database/migrations"
+        "migrationsDir": "./src/shared/infra/typeorm/migrations"
     }
 }
