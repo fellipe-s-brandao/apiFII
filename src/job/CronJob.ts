@@ -1,7 +1,7 @@
-import { CronJob } from 'cron';
-import { GetFiis } from '../modules/fundos_imobiliarios/useCases/Fiis/GetFiis';
+import { FiisUseCase } from "@modules/fundos_imobiliarios/useCases/Fiis/FiisUseCase";
+import { GetFiis } from "@modules/fundos_imobiliarios/useCases/Fiis/GetFiis";
+import { CronJob } from "cron";
 import { container } from "tsyringe";
-import { FiisUseCase } from '../modules/fundos_imobiliarios/useCases/Fiis/FiisUseCase';
 
 class Jobs {
     cronJob: CronJob;

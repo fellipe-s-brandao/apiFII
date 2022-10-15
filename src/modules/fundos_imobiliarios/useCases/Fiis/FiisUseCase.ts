@@ -1,6 +1,6 @@
+import { ICreateFiisDTOS } from "@modules/fundos_imobiliarios/dtos/ICreateFiisDTOS";
+import { IFiisRepository } from "@modules/fundos_imobiliarios/repositories/IFiisRepository";
 import { inject, injectable } from "tsyringe";
-import { ICreateFiisDTOS } from "../../dtos/ICreateFiisDTOS";
-import { IFiisRepository } from "../../repositories/IFiisRepository";
 
 @injectable()
 class FiisUseCase {
