@@ -9,7 +9,8 @@
         "paths": {
             "@modules/*": ["modules/*"],
             "@config/*": ["config/*"],
-            "@shared/*": ["shared/*"]
+            "@shared/*": ["shared/*"],
+            "@utils/*": ["utils/*"]
         },
         "resolveJsonModule": true,
         "sourceMap": true,

@@ -17,7 +17,7 @@ class FiisRepositoryInMemory implements IFiisRepository {
     }
 
     async updateFundoById(data: ICreateFiisDTOS, id: string): Promise<void> {
-        Object.assign(this.fiis.find((fii) => fii.id === id, data));
+        Object.assign(this.fiis.find((fii) => fii.id === id), data);
     }
 
 }

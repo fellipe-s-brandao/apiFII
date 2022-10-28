@@ -88,11 +88,15 @@ class Fiis {
     data_atualizacao: Date;
 
     @CreateDateColumn()
-    data_atualizacao_api: Date;
+    data_atualizacao_api?: Date;
 
     constructor(){
         if(! this.id){
             this.id = uuidV4();
+        }
+        
+        if(! this.data_atualizacao_api){
+            this.data_atualizacao_api = new Date();
         }
     }
 }

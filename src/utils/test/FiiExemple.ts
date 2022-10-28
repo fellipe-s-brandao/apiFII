@@ -28,7 +28,6 @@ const FiiExemple: Fiis = {
     vacancia_financeira: 0,
     quantidade_ativos: 15,
     data_atualizacao: new Date(),
-    data_atualizacao_api: new Date(),
 }
 
 export { FiiExemple };
