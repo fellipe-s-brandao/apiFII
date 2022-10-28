@@ -4,6 +4,10 @@ import { IFiisRepository } from "../IFiisRepository";
 
 class FiisRepositoryInMemory implements IFiisRepository {
     fiis: Fiis [] = [];
+    
+    getBestFiisQuery1(): Promise<[Fiis]> {
+        throw new Error("Method not implemented.");
+    }
 
     async create(data: ICreateFiisDTOS): Promise<void> {
         const fii = new Fiis();

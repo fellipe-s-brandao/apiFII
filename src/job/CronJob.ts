@@ -4,14 +4,22 @@ import { CronJob } from "cron";
 import { container } from "tsyringe";
 
 class Jobs {
-    cronJob: CronJob;
+    cronJobGetFundos: CronJob;
+    cronJobProcessaDados: CronJob;
 
     constructor() {
         console.log("Jobs is running");
 
-        this.cronJob = new CronJob('30 * * * * *', async () => {
+        this.cronJobGetFundos = new CronJob('* 50 * * * *', async () => {
             try {
                 await this.getInfoFundos();
+            } catch (e) {
+                console.error(e);
+            }
+        });
+
+        this.cronJobProcessaDados = new CronJob('1 * * * * *', async () => {
+            try {
                 await this.processaDados();
             } catch (e) {
                 console.error(e);
@@ -19,8 +27,13 @@ class Jobs {
         });
 
         // Start job
-        if (!this.cronJob.running) {
-            this.cronJob.start();
+        if (!this.cronJobGetFundos.running) {
+            this.cronJobGetFundos.start();
+        }
+
+        // Start job
+        if (!this.cronJobProcessaDados.running) {
+            this.cronJobProcessaDados.start();
         }
     }
 
@@ -37,7 +50,8 @@ class Jobs {
     }
 
     async processaDados() {
-
+        const fiisUseCase = container.resolve(FiisUseCase);
+        await fiisUseCase.processar_dados_fiis();
     }
 
 }
