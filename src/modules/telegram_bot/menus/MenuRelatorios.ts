@@ -1,21 +1,27 @@
+import { Context } from "grammy"
 import { Menu } from "@grammyjs/menu";
+import { RelatorioV1 } from "../relatorios/RelatorioV1";
+import type { ParseModeFlavor } from "@grammyjs/parse-mode";
 
 class MenuRelatorios {
-    execute() {
-        const menu_relatorios = new Menu("menu-relatorios")
-        .text("Relatório 01", (ctx) => ctx.reply(this.gerar_relatorio_v1()))
-        .text("Relatório 02", (ctx) => ctx.reply(this.gerar_relatorio_v2()))
-        .back("Go Back");
+    private relatorioV1: RelatorioV1
+    constructor() {
+        this.relatorioV1 = new RelatorioV1
+    }
+
+    execute(): Menu {
+        const menu_relatorios = new Menu<ParseModeFlavor<Context>>("menu-relatorios")
+            .text("Relatório V1", async (ctx) => {
+                ctx.replyWithHTML(await this.gerar_relatorio_v1())
+            })
+            .back("Go Back");
 
         return menu_relatorios;
     }
 
-    private gerar_relatorio_v1() {
-        return "relatorio v1"
-    }
-
-    private gerar_relatorio_v2() {
-        return "relatorio v2"
+    private async gerar_relatorio_v1(): Promise<string> {
+        const relatorio = await this.relatorioV1.execute();
+        return relatorio;
     }
 }
 
