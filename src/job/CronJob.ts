@@ -5,7 +5,6 @@ import { container } from "tsyringe";
 
 class Jobs {
     cronJobGetFundos: CronJob;
-    cronJobProcessaDados: CronJob;
 
     constructor() {
         console.log("Jobs is running");
@@ -18,22 +17,9 @@ class Jobs {
             }
         });
 
-        this.cronJobProcessaDados = new CronJob('1 * * * * *', async () => {
-            try {
-                await this.processaDados();
-            } catch (e) {
-                console.error(e);
-            }
-        });
-
         // Start job
         if (!this.cronJobGetFundos.running) {
             this.cronJobGetFundos.start();
-        }
-
-        // Start job
-        if (!this.cronJobProcessaDados.running) {
-            this.cronJobProcessaDados.start();
         }
     }
 
@@ -47,11 +33,6 @@ class Jobs {
         } else {
             console.log('Dados nao atualizados!');
         }
-    }
-
-    async processaDados() {
-        const fiisUseCase = container.resolve(FiisUseCase);
-        await fiisUseCase.processar_dados_fiis();
     }
 
 }
