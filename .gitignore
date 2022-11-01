@@ -1,9 +1,8 @@
-
 .idea/
 .vscode/
 node_modules/
 build/
 tmp/
 temp/
-/env
-/ormconfig.json
+.env
+ormconfig.json
