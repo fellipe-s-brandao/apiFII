@@ -30,7 +30,7 @@ class RelatorioV1 {
 `;
             text += ` - Dividendo: ${fundo.dividendo}
 `;
-            text += ` - Data Atualizacao Api: ${date.getDate()}/${date.getMonth()}/${date.getFullYear()} 
+            text += ` - Data Atualização: ${date.getDate()}/${date.getMonth()}/${date.getFullYear()} - ${date.getHours()}:${date.getMinutes()} 
 `;
             text += `
 `;
