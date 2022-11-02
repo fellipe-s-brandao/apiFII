@@ -8,6 +8,7 @@ class CrawlerFiis {
             console.log("Crawler is running");
 
             const browser = await puppeteer.launch({
+                args: ['--no-sandbox'],
                 executablePath: '/usr/bin/chromium',
                 headless: true,
                 defaultViewport: null,
