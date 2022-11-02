@@ -12,7 +12,7 @@ class GetFiis {
 
     async execute(): Promise<Fiis[]> {
         try {
-            const fundos = this.crawler.execute();
+            const fundos = await this.crawler.execute();
             return fundos;
 
         } catch (error) {
