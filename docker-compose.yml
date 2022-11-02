@@ -25,6 +25,8 @@ services:
             - database_fiis
         depends_on: 
             - database_fiis
+        security_opt:
+            - seccomp=chrome.json
 volumes:
     pgdata:
         driver: local

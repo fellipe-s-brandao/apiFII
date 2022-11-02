@@ -25,7 +25,6 @@ interface ICreateFiisDTOS {
     vacancia_fisica: number,
     vacancia_financeira: number,
     quantidade_ativos: number,
-    data_atualizacao: Date,
     data_atualizacao_api?: Date,
 }
 

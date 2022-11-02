@@ -1,16 +1,20 @@
 
 import { Fiis } from "@modules/fundos_imobiliarios/infra/typeorm/entities/Fiis";
+import { CrawlerFiis } from "@shared/crawler/CrawlerFiis";
 import axios from "axios";
 
 class GetFiis {
+    private crawler: CrawlerFiis;
 
-    constructor() { }
+    constructor() { 
+        this.crawler = new CrawlerFiis;
+    }
 
     async execute(): Promise<Fiis[]> {
         try {
-            const response = await axios.get<Fiis[]>(process.env.APIFUNDO);
+            const fundos = this.crawler.execute();
+            return fundos;
 
-            return response.data;
         } catch (error) {
             console.log("getFiis", error);
         }

@@ -6,7 +6,7 @@ import "@shared/container"
 import "../typeorm/database";
 import { Jobs } from "job/CronJob";
 
-import "@modules/telegram_bot/index"
+import "@shared/telegram_bot/index"
 
 new Jobs;
 
