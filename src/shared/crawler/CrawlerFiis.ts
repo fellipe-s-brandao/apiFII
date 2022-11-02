@@ -15,7 +15,7 @@ class CrawlerFiis {
             });
 
             const page = await browser.newPage();
-            await page.goto(process.env.APIFUNDO);
+            await page.goto(process.env.APIFUNDO, {waitUntil: 'load', timeout: 0});
 
             const result: Fiis[] = await page.evaluate(() => {
                 
