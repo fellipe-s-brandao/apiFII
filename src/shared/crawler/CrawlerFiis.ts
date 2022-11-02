@@ -82,7 +82,7 @@ class CrawlerFiis {
             });
 
             browser.close();
-            console.log(result);
+            console.log("Crawler rodou!");
 
             return result;
         } catch (error) {
