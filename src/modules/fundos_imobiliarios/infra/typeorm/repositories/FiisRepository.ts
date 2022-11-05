@@ -23,6 +23,7 @@ class FiisRepository implements IFiisRepository {
                 .andWhere('fiis.rentabilidade_patrimonial_acumulada > :rentabilidade_patrimonial_acumulada', { rentabilidade_patrimonial_acumulada: process.env.BEST1_rentabilidade_patrimonial_acumulada })
                 .andWhere('fiis.vacancia_financeira = :vacancia_financeira', { vacancia_financeira: process.env.BEST1_vacancia_financeira })
                 .andWhere('fiis.vacancia_fisica = :vacancia_fisica', { vacancia_fisica: process.env.BEST1_vacancia_fisica })
+                .andWhere('fiis.liquidez_diaria > :liquidez_diaria', { liquidez_diaria: process.env.BEST1_liquidez_diaria })
                 .orderBy('fiis.dy', "DESC")
                 .getMany();
 

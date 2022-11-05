@@ -34,8 +34,6 @@ class RelatorioV1 {
 `;
             text += ` - P VPA: ${fundo.p_vpa}
 `;
-            text += ` - Variação Preço: ${fundo.variacao_preco}
-`;
             text += ` - Data Atualização: ${date.getDate()}/${date.getMonth()}/${date.getFullYear()} - ${date.getHours()}:${date.getMinutes()} 
 `;
             text += `
