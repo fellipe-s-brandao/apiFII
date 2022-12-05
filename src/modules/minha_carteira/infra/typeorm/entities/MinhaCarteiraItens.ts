@@ -24,7 +24,7 @@ class MinhaCarteiraItens {
     data_compra: Date;
 
     constructor() {
-        if(!this.id) {
+        if (!this.id) {
             this.id = uuidV4();
         }
     }
